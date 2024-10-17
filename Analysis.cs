@@ -1,13 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
+using System.Globalization;
 
 namespace ExpenseTracker
 {
@@ -16,58 +7,68 @@ namespace ExpenseTracker
         public Analysis()
         {
             InitializeComponent();
+            Analysis_load();
         }
 
-        private void Analysis_load(object sender, EventArgs e)
+        private string convertDate(string date)
         {
-            // Read CSV data
+            DateTime parsedDate = DateTime.ParseExact(date, "dd/MM/yy", CultureInfo.InvariantCulture);
+            string standardDate = parsedDate.ToString("yyyy-MM-dd");
+            return standardDate;
+        }
+
+        private void Analysis_load()
+        {
             List<Expense> expenses = new List<Expense>();
-            using (StreamReader reader = new StreamReader("D:/! Kalash/Extras/Data/casepoint expenses.csv"))
+            try
             {
-                string line;
-                while ((line = reader.ReadLine()!) != null)
+                using (StreamReader reader = new StreamReader("D:/! Kalash/Extras/Data/casepoint expenses.csv"))
                 {
-                    string[] parts = line.Split(',');
-                    // MessageBox.Show("parts = " + parts[0]);
-                    if (parts.Length >= 4)
+                    string line;
+                    while ((line = reader.ReadLine()!) != null)
                     {
-                        double amount;
-                        if (double.TryParse(parts[0], out amount))
+                        string[] parts = line.Split(',');
+                        if (parts.Length >= 4)
                         {
-                            DateTime date;
-                            if (DateTime.TryParseExact(parts[3], "dd-MM-yy", null, System.Globalization.DateTimeStyles.None, out date))
+                            double amount;
+                            if (double.TryParse(parts[0], out amount))
                             {
+                                string date = convertDate(parts[3]);
                                 expenses.Add(new Expense
                                 {
                                     Amount = amount,
                                     Purpose = parts[1],
                                     Category = parts[2],
-                                    Date = date
+                                    Date = Convert.ToDateTime(date)
                                 });
                             }
                         }
                     }
+
+                    for (int i = 0; i < expenses.Count; i++)
+                    {
+                        Console.WriteLine(i + " - " + expenses[i]);
+                    }
+
+                    double totalExpenses = expenses.Sum(e => e.Amount);
+                    double averageExpenses = expenses.Average(e => e.Amount);
+                    double highestExpense = expenses.Max(e => e.Amount);
+                    double lowestExpense = expenses.Min(e => e.Amount);
+                    var expensesByCategory = expenses.GroupBy(e => e.Category);
+                    foreach (var group in expensesByCategory)
+                    {
+                        double totalCategoryExpenses = group.Sum(e => e.Amount);
+                    }
+
+                    lblTotalExpenses.Text = "Total Expenses: " + totalExpenses.ToString("C2");
+                    lblAverageExpenses.Text = "Average Expenses: " + averageExpenses.ToString("C2");
+                    lblHighestExpense.Text = "Highest Expense: " + highestExpense.ToString("C2");
+                    lblLowestExpense.Text = "Lowest Expense: " + lowestExpense.ToString("C2");
                 }
-
-                // Calculate statistics
-                double totalExpenses = expenses.Sum(e => e.Amount);
-                // MessageBox.Show(totalExpenses.ToString());
-                double averageExpenses = expenses.Average(e => e.Amount);
-                double highestExpense = expenses.Max(e => e.Amount);
-                double lowestExpense = expenses.Min(e => e.Amount);
-
-                // Calculate statistics by category (if needed)
-                var expensesByCategory = expenses.GroupBy(e => e.Category);
-                foreach (var group in expensesByCategory)
-                {
-                    double totalCategoryExpenses = group.Sum(e => e.Amount);
-                }
-
-                // Display statistics
-                lblTotalExpenses.Text = "Total Expenses: " + totalExpenses.ToString("C2");
-                lblAverageExpenses.Text = "Average Expenses: " + averageExpenses.ToString("C2");
-                lblHighestExpense.Text = "Highest Expense: " + highestExpense.ToString("C2");
-                lblLowestExpense.Text = "Lowest Expense: " + lowestExpense.ToString("C2");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
@@ -79,5 +80,4 @@ public class Expense
     public DateTime Date { get; set; }
     public string? Purpose { get; set; }
     public string? Category { get; set; }
-
 }

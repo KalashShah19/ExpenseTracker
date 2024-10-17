@@ -87,7 +87,6 @@ namespace ExpenseTracker
             this.Text = "Expense Statistics";
             this.ResumeLayout(false);
             this.PerformLayout();
-            this.Load +=Analysis_load;
         }
 
         #endregion

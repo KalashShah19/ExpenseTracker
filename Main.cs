@@ -1,7 +1,3 @@
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-
 namespace ExpenseTracker
 {
     public partial class Main : Form
@@ -22,9 +18,10 @@ namespace ExpenseTracker
                     OpenForm(new Entry());
                     break;
                 case "Expense Details":
-                    
+                    OpenForm(new Data());
                     break;
                 case "Analysis":
+                    OpenForm(new Analysis());
                     break;
             }
         }
