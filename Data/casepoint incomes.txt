@@ -1,0 +1,56 @@
+02/09/24, 2 coffees, 20 
+04/09/24, 2 coffees, 20
+05/09/24, 2 coffees, 20
+05/09/24, 1 Tea, 10
+06/09/24, 4 coffee, 40
+09/09/24, 5 coffee, 50
+10/09/24, 4 coffee, 40
+11/09/24, 6 coffee, 60
+12/09/24, 3 coffee, 30
+13/09/24, 3 coffee, 30
+16/09/24, 3 coffee, 30
+18/09/24, 6 coffee, 60
+19/09/24, 3 coffee, 30
+24/09/24, 3 coffee, 30
+25/09/24, 4 coffee, 40
+26/09/24, 3 coffee, 30
+27/09/24, 3 coffee, 30
+28/09/24, 3 coffee, 30
+30/09/24, 4 coffee, 40
+01/10/24, 5 coffee, 50
+03/10/24, 6 coffee, 60
+04/10/24, 4 coffee, 40
+07/10/24, 6 coffee, 60
+08/10/24, 6 coffee, 60
+09/10/24, 4 coffee, 40
+10/10/24, 4 coffee, 40
+11/10/24, 4 coffee, 40
+14/10/24, 2 coffee, 20
+
+
+
+02/09/24, charge, 7 
+04/09/24, charge, 7
+05/09/24, charge, 7
+06/09/24, charge, 7
+03/09/24, charge, 7 
+10/09/24, charge, 7
+11/09/24, charge, 7 
+12/09/24, charge, 7 
+13/09/24, charge, 7
+18/09/24, charge, 10
+19/09/24, charge, 10
+24/09/24, charge, 7
+25/09/24, charge, 7
+26/09/24, charge, 7
+28/09/24, charge, 7
+29/09/24, charge, 7 
+01/10/24, charge, 14
+03/10/24, charge, 14
+04/10/24, charge, 7 
+07/10/24, charge, 7 
+08/10/24, charge, 7
+09/10/24, charge, 7
+10/10/24, charge, 7
+14/10/24, charge, 7 
+

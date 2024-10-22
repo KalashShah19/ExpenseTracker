@@ -55,15 +55,18 @@ namespace ExpenseTracker
                     double highestExpense = expenses.Max(e => e.Amount);
                     double lowestExpense = expenses.Min(e => e.Amount);
                     var expensesByCategory = expenses.GroupBy(e => e.Category);
+                    double totalCategoryExpenses = 0;
                     foreach (var group in expensesByCategory)
                     {
-                        double totalCategoryExpenses = group.Sum(e => e.Amount);
+                        totalCategoryExpenses = group.Sum(e => e.Amount);
                     }
+                    double totalTravelingExpenses = expensesByCategory.Where(g => g.Key == "Traveling").Sum(g => g.Sum(e => e.Amount));
 
-                    lblTotalExpenses.Text = "Total Expenses: " + totalExpenses.ToString("C2");
-                    lblAverageExpenses.Text = "Average Expenses: " + averageExpenses.ToString("C2");
-                    lblHighestExpense.Text = "Highest Expense: " + highestExpense.ToString("C2");
-                    lblLowestExpense.Text = "Lowest Expense: " + lowestExpense.ToString("C2");
+                    lblTravel.Text = "Travel : " + totalTravelingExpenses.ToString("C2");
+                    lblTotalExpenses.Text = "Total : " + totalExpenses.ToString("C2");
+                    lblAverageExpenses.Text = "Average : " + averageExpenses.ToString("C2");
+                    lblHighestExpense.Text = "Highest : " + highestExpense.ToString("C2");
+                    lblLowestExpense.Text = "Lowest : " + lowestExpense.ToString("C2");
                 }
             }
             catch (Exception ex)

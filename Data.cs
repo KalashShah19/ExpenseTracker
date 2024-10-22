@@ -1,5 +1,7 @@
+using CsvHelper;
 using System;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 
@@ -18,6 +20,9 @@ namespace ExpenseTracker
             DataTable dataTable = LoadCsvData(csvFilePath);
 
             dataGridView.DataSource = dataTable;
+            dataGridView.AllowUserToAddRows = true;
+            dataGridView.ReadOnly = false;
+
             ShowStatistics(dataTable);
         }
 
@@ -62,6 +67,19 @@ namespace ExpenseTracker
             }
 
             lblTotalExpenses.Text = $"Total Expenses: ₹{totalExpenses.ToString("N2")}";
+        }
+
+        private void SaveCsvData(object sender, EventArgs e)
+        {
+            DataTable dataTable = (DataTable)dataGridView.DataSource;
+
+            using (StreamWriter sw = new StreamWriter("D:/! Kalash/Extras/Data/casepoint expenses.csv"))
+            using (CsvWriter csvWriter = new CsvWriter(sw, CultureInfo.InvariantCulture))
+            {
+                // csvWriter.WriteRecord(dataTable.Columns.Cast<DataColumn>().Select(c => c.ColumnName).ToArray());
+                // csvWriter.WriteRecords(dataTable.Rows);
+            }
+            MessageBox.Show("CSV Updated");
         }
     }
 }

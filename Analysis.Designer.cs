@@ -1,3 +1,4 @@
+
 namespace ExpenseTracker
 {
     partial class Analysis
@@ -32,13 +33,14 @@ namespace ExpenseTracker
             this.lblAverageExpenses = new System.Windows.Forms.Label();
             this.lblHighestExpense = new System.Windows.Forms.Label();
             this.lblLowestExpense = new System.Windows.Forms.Label();
+            this.lblTravel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTotalExpenses
             // 
             this.lblTotalExpenses.AutoSize = true;
             this.lblTotalExpenses.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalExpenses.Location = new System.Drawing.Point(12, 42);
+            this.lblTotalExpenses.Location = new System.Drawing.Point(12, 166);
             this.lblTotalExpenses.Name = "lblTotalExpenses";
             this.lblTotalExpenses.Size = new System.Drawing.Size(123, 21);
             this.lblTotalExpenses.TabIndex = 2;
@@ -74,15 +76,26 @@ namespace ExpenseTracker
             this.lblLowestExpense.TabIndex = 5;
             this.lblLowestExpense.Text = "Lowest Expense:";
             // 
+            // lblTravel
+            // 
+            this.lblTravel.AutoSize = true;
+            this.lblTravel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTravel.Location = new System.Drawing.Point(12, 42);
+            this.lblTravel.Name = "lblTravel";
+            this.lblTravel.Size = new System.Drawing.Size(147, 21);
+            this.lblTravel.TabIndex = 5;
+            this.lblTravel.Text = "Travel Expense:";
+            // 
             // Analysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 174);
+            this.ClientSize = new System.Drawing.Size(400, 300);
             this.Controls.Add(this.lblLowestExpense);
             this.Controls.Add(this.lblHighestExpense);
             this.Controls.Add(this.lblAverageExpenses);
             this.Controls.Add(this.lblTotalExpenses);
+            this.Controls.Add(this.lblTravel);
             this.Name = "Analysis";
             this.Text = "Expense Statistics";
             this.ResumeLayout(false);
@@ -95,5 +108,6 @@ namespace ExpenseTracker
         private System.Windows.Forms.Label lblAverageExpenses;
         private System.Windows.Forms.Label lblHighestExpense;
         private System.Windows.Forms.Label lblLowestExpense;
+        private System.Windows.Forms.Label lblTravel;
     }
 }

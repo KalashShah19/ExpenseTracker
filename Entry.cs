@@ -18,7 +18,7 @@ public partial class Entry : Form
         string data = $"{amount} - {expenseName.ToLower()} ( {date} )";
         string csv = $"{amount},Van,{expenseName},{date}";
 
-        string filePath = "D:/! Kalash/Extras/Data/casepoint expenses.txt";
+        string filePath = "D:/! Kalash/Extras/Texts/casepoint expenses.txt";
         string csvPath = "D:/! Kalash/Extras/Data/casepoint expenses.csv";
         File.AppendAllText(filePath, data + Environment.NewLine);
         File.AppendAllText(csvPath, csv + Environment.NewLine);

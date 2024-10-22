@@ -75,7 +75,6 @@ namespace ExpenseTracker
 
             tilePanel.Controls.Add(pictureBox);
             tilePanel.Controls.Add(label);
-
             panel.Controls.Add(tilePanel);
         }
     }
