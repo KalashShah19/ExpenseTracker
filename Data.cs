@@ -1,9 +1,4 @@
-using CsvHelper;
-using System;
 using System.Data;
-using System.Globalization;
-using System.IO;
-using System.Windows.Forms;
 
 namespace ExpenseTracker
 {
@@ -16,7 +11,7 @@ namespace ExpenseTracker
 
         private void DataDisplayForm_Load(object sender, EventArgs e)
         {
-            string csvFilePath = "D:/! Kalash/Extras/Data/casepoint expenses.csv";
+            string csvFilePath = "Data/casepoint expenses.csv";
             DataTable dataTable = LoadCsvData(csvFilePath);
 
             dataGridView.DataSource = dataTable;
@@ -24,6 +19,97 @@ namespace ExpenseTracker
             dataGridView.ReadOnly = false;
 
             ShowStatistics(dataTable);
+        }
+
+        private async void loadFile(object sender, EventArgs e)
+        {
+            string csvFilePath = "https://github.com/KalashShah19/ExpenseTracker/blob/main/Data/casepoint%20expenses.csv";
+            try
+            {
+                DataTable dataTable = await LoadCsvDataAsync(csvFilePath);
+                dataGridView.DataSource = dataTable;
+
+                dataGridView.AllowUserToAddRows = true;
+                dataGridView.ReadOnly = false;
+
+                dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading CSV: {ex.Message}");
+            }
+        }
+
+        private async Task<DataTable> LoadCsvDataAsync(string csvFilePath)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync(csvFilePath);
+                response.EnsureSuccessStatusCode();
+
+                string csvContent = await response.Content.ReadAsStringAsync();
+
+                return ProcessCsv(csvContent);
+            }
+        }
+
+        private DataTable ProcessCsv(string csvContent)
+        {
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("Amount", typeof(decimal));
+            dataTable.Columns.Add("Purpose", typeof(string));
+            dataTable.Columns.Add("Category", typeof(string));
+            dataTable.Columns.Add("Date", typeof(DateTime));
+
+            using (StringReader reader = new StringReader(csvContent))
+            {
+                string line;
+                bool isFirstLine = true;
+
+                while ((line = reader.ReadLine()!) != null)
+                {
+                    var values = line.Split(',');
+
+                    if (isFirstLine)
+                    {
+                        isFirstLine = false;
+                        continue;
+                    }
+
+                    if (values.Length == 4)
+                    {
+                        DataRow row = dataTable.NewRow();
+
+                        decimal amount;
+                        if (decimal.TryParse(values[0], out amount))
+                        {
+                            row["Amount"] = amount;
+                        }
+                        else
+                        {
+                            row["Amount"] = 0;
+                        }
+
+                        row["Purpose"] = values[1];
+                        row["Category"] = values[2];
+
+                        // Parse "Date"
+                        DateTime date;
+                        if (DateTime.TryParse(values[3], out date))
+                        {
+                            row["Date"] = date;
+                        }
+                        else
+                        {
+                            row["Date"] = DateTime.MinValue;
+                        }
+
+                        dataTable.Rows.Add(row);
+                    }
+                }
+            }
+
+            return dataTable;
         }
 
         private DataTable LoadCsvData(string filePath)
@@ -67,19 +153,6 @@ namespace ExpenseTracker
             }
 
             lblTotalExpenses.Text = $"Total Expenses: ₹{totalExpenses.ToString("N2")}";
-        }
-
-        private void SaveCsvData(object sender, EventArgs e)
-        {
-            DataTable dataTable = (DataTable)dataGridView.DataSource;
-
-            using (StreamWriter sw = new StreamWriter("D:/! Kalash/Extras/Data/casepoint expenses.csv"))
-            using (CsvWriter csvWriter = new CsvWriter(sw, CultureInfo.InvariantCulture))
-            {
-                // csvWriter.WriteRecord(dataTable.Columns.Cast<DataColumn>().Select(c => c.ColumnName).ToArray());
-                // csvWriter.WriteRecords(dataTable.Rows);
-            }
-            MessageBox.Show("CSV Updated");
         }
     }
 }

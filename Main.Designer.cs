@@ -13,7 +13,7 @@ namespace ExpenseTracker
             }
             base.Dispose(disposing);
         }
-        
+
         #region Windows Form Designer generated code
 
         private void InitializeComponent()
@@ -41,15 +41,14 @@ namespace ExpenseTracker
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 
             AddGridTile(this.tableLayoutPanel, "Expense Entry", "images/expense.png", Tile_Click);
-            AddGridTile(this.tableLayoutPanel, "Expense Details", "images/data.png", Tile_Click);
+            AddGridTile(this.tableLayoutPanel, "Expenses", "images/data.png", Tile_Click);
+            AddGridTile(this.tableLayoutPanel, "Casepoint Expenses", "images/data.png", Tile_Click);
             AddGridTile(this.tableLayoutPanel, "Analysis", "images/analysis.jpg", Tile_Click);
 
             this.Controls.Add(this.tableLayoutPanel);
 
             this.ResumeLayout(false);
         }
-
-        #endregion
 
         private void AddGridTile(System.Windows.Forms.TableLayoutPanel panel, string title, string imagePath, System.EventHandler clickHandler)
         {
@@ -77,5 +76,8 @@ namespace ExpenseTracker
             tilePanel.Controls.Add(label);
             panel.Controls.Add(tilePanel);
         }
+
+        #endregion
+
     }
 }

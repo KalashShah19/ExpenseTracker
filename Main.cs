@@ -17,8 +17,11 @@ namespace ExpenseTracker
                 case "Expense Entry":
                     OpenForm(new Entry());
                     break;
-                case "Expense Details":
+                case "Casepoint Expenses":
                     OpenForm(new Data());
+                    break;
+                case "Expenses":
+                    OpenForm(new Expenses());
                     break;
                 case "Analysis":
                     OpenForm(new Analysis());

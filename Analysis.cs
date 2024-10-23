@@ -20,59 +20,61 @@ namespace ExpenseTracker
         private void Analysis_load()
         {
             List<Expense> expenses = new List<Expense>();
-            try
+            // try
+            // {
+            using (StreamReader reader = new StreamReader("Data/casepoint expenses.csv"))
             {
-                using (StreamReader reader = new StreamReader("D:/! Kalash/Extras/Data/casepoint expenses.csv"))
+                string line;
+                while ((line = reader.ReadLine()!) != null)
                 {
-                    string line;
-                    while ((line = reader.ReadLine()!) != null)
+                    string[] parts = line.Split(',');
+                    if (parts.Length >= 4)
                     {
-                        string[] parts = line.Split(',');
-                        if (parts.Length >= 4)
+                        double amount;
+                        if (double.TryParse(parts[0], out amount))
                         {
-                            double amount;
-                            if (double.TryParse(parts[0], out amount))
+                            string date = convertDate(parts[2]);
+                            expenses.Add(new Expense
                             {
-                                string date = convertDate(parts[3]);
-                                expenses.Add(new Expense
-                                {
-                                    Amount = amount,
-                                    Purpose = parts[1],
-                                    Category = parts[2],
-                                    Date = Convert.ToDateTime(date)
-                                });
-                            }
+                                Amount = amount,
+                                Purpose = parts[1],
+                                Category = parts[2],
+                                Date = Convert.ToDateTime(date)
+                            });
                         }
                     }
-
-                    for (int i = 0; i < expenses.Count; i++)
-                    {
-                        Console.WriteLine(i + " - " + expenses[i]);
-                    }
-
-                    double totalExpenses = expenses.Sum(e => e.Amount);
-                    double averageExpenses = expenses.Average(e => e.Amount);
-                    double highestExpense = expenses.Max(e => e.Amount);
-                    double lowestExpense = expenses.Min(e => e.Amount);
-                    var expensesByCategory = expenses.GroupBy(e => e.Category);
-                    double totalCategoryExpenses = 0;
-                    foreach (var group in expensesByCategory)
-                    {
-                        totalCategoryExpenses = group.Sum(e => e.Amount);
-                    }
-                    double totalTravelingExpenses = expensesByCategory.Where(g => g.Key == "Traveling").Sum(g => g.Sum(e => e.Amount));
-
-                    lblTravel.Text = "Travel : " + totalTravelingExpenses.ToString("C2");
-                    lblTotalExpenses.Text = "Total : " + totalExpenses.ToString("C2");
-                    lblAverageExpenses.Text = "Average : " + averageExpenses.ToString("C2");
-                    lblHighestExpense.Text = "Highest : " + highestExpense.ToString("C2");
-                    lblLowestExpense.Text = "Lowest : " + lowestExpense.ToString("C2");
                 }
+
+                for (int i = 0; i < expenses.Count; i++)
+                {
+                    Console.WriteLine(i + " - " + expenses[i]);
+                }
+
+                double totalExpenses = expenses.Sum(e => e.Amount);
+                double averageExpenses = expenses.Average(e => e.Amount);
+                double highestExpense = expenses.Max(e => e.Amount);
+                double lowestExpense = expenses.Min(e => e.Amount);
+                var expensesByCategory = expenses.GroupBy(e => e.Purpose);
+                double totalCategoryExpenses = 0;
+                foreach (var group in expensesByCategory)
+                {
+                    totalCategoryExpenses = group.Sum(e => e.Amount);
+                }
+                double totalTravelingExpenses = expensesByCategory.Where(g => g.Key == "travel").Sum(g => g.Sum(e => e.Amount));
+
+                lblTravel.Text = "Travel : " + totalTravelingExpenses.ToString("C2");
+                lblTotalExpenses.Text = "Total : " + totalExpenses.ToString("C2");
+                lblAverageExpenses.Text = "Average : " + averageExpenses.ToString("C2");
+                lblHighestExpense.Text = "Highest : " + highestExpense.ToString("C2");
+                lblLowestExpense.Text = "Lowest : " + lowestExpense.ToString("C2");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            // }
+            // catch (Exception ex)
+            // {
+
+            //     // MessageBox.Show("inside load");
+            //     MessageBox.Show(ex.Message);
+            // }
         }
     }
 }

@@ -5,7 +5,6 @@ namespace ExpenseTracker
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Label lblTotalExpenses;
-        private System.Windows.Forms.Button btnSave;
 
         protected override void Dispose(bool disposing)
         {
@@ -20,7 +19,6 @@ namespace ExpenseTracker
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.lblTotalExpenses = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,18 +58,6 @@ namespace ExpenseTracker
             this.lblTotalExpenses.Text = "Total Expenses: ₹0";
             this.lblTotalExpenses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnSave
-            // 
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSave.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSave.ForeColor = System.Drawing.ColorTranslator.FromHtml("#333333");
-            this.btnSave.Location = new System.Drawing.Point(0, 350);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Text = "Save";
-            this.btnSave.TabIndex = 1;
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Click += SaveCsvData;
-            // 
             // DataDisplayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -79,7 +65,6 @@ namespace ExpenseTracker
             this.ClientSize = new System.Drawing.Size(600, 400);
             this.Controls.Add(this.lblTotalExpenses);
             this.Controls.Add(this.dataGridView);
-            this.Controls.Add(this.btnSave);
             this.Name = "Data";
             this.Text = "Data";
             this.Load += new System.EventHandler(this.DataDisplayForm_Load);
