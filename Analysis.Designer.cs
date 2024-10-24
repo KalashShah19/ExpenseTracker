@@ -96,8 +96,8 @@ namespace ExpenseTracker
             this.Controls.Add(this.lblAverageExpenses);
             this.Controls.Add(this.lblTotalExpenses);
             this.Controls.Add(this.lblTravel);
-            this.Name = "Analysis";
-            this.Text = "Expense Statistics";
+            this.Name = "Casepoint Analysis";
+            this.Text = "Casepoint Expense Statistics";
             this.ResumeLayout(false);
             this.PerformLayout();
         }

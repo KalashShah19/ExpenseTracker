@@ -13,7 +13,7 @@ static class Program
         ApplicationConfiguration.Initialize();
         try
         {
-            Application.Run(new Main());
+            Application.Run(new ReadAnalysis());
         }
         catch (Exception ex)
         {

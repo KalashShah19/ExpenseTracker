@@ -14,18 +14,31 @@ namespace ExpenseTracker
 
             switch (title)
             {
-                case "Expense Entry":
+                // Casepoint
+                case "Casepoint Entry":
                     OpenForm(new Entry());
                     break;
                 case "Casepoint Expenses":
                     OpenForm(new Data());
                     break;
-                case "Expenses":
-                    OpenForm(new Expenses());
-                    break;
-                case "Analysis":
+                case "Casepoint Analysis":
                     OpenForm(new Analysis());
                     break;
+                // Other 
+                case "Expense Entry":
+                    OpenForm(new Insert());
+                    break;
+                case "Other Expenses":
+                    OpenForm(new Expenses());
+                    break;
+                case "Expenses Analysis":
+                    OpenForm(new Analytics());
+                    break;
+                //Book Reading
+                case "Reading Data":
+                    OpenForm(new Reading());
+                    break;
+
             }
         }
 

@@ -546,11 +546,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\! Kalash\\Extras\\Win App\\ExpenseTracker\\ExpenseTracker.csproj",
+      "projectUniqueName": "D:\\! Kalash\\GitHub\\ExpenseTracker\\ExpenseTracker.csproj",
       "projectName": "ExpenseTracker",
-      "projectPath": "D:\\! Kalash\\Extras\\Win App\\ExpenseTracker\\ExpenseTracker.csproj",
+      "projectPath": "D:\\! Kalash\\GitHub\\ExpenseTracker\\ExpenseTracker.csproj",
       "packagesPath": "C:\\Users\\intern035\\.nuget\\packages\\",
-      "outputPath": "D:\\! Kalash\\Extras\\Win App\\ExpenseTracker\\obj\\",
+      "outputPath": "D:\\! Kalash\\GitHub\\ExpenseTracker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

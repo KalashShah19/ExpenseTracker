@@ -25,7 +25,7 @@ namespace ExpenseTracker
             // MainForm
             // 
             this.Text = "Expense Tracker Dashboard";
-            this.Size = new System.Drawing.Size(600, 400);
+            this.Size = new System.Drawing.Size(600, 550);
             this.BackColor = System.Drawing.ColorTranslator.FromHtml("#e6f2ff");
 
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -40,13 +40,14 @@ namespace ExpenseTracker
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 
-            AddGridTile(this.tableLayoutPanel, "Expense Entry", "images/expense.png", Tile_Click);
-            AddGridTile(this.tableLayoutPanel, "Expenses", "images/data.png", Tile_Click);
+            AddGridTile(this.tableLayoutPanel, "Casepoint Entry", "images/expense.png", Tile_Click);
             AddGridTile(this.tableLayoutPanel, "Casepoint Expenses", "images/data.png", Tile_Click);
-            AddGridTile(this.tableLayoutPanel, "Analysis", "images/analysis.jpg", Tile_Click);
-
+            AddGridTile(this.tableLayoutPanel, "Casepoint Analysis", "images/analysis.jpg", Tile_Click);
+            AddGridTile(this.tableLayoutPanel, "Expense Entry", "images/expense.png", Tile_Click);
+            AddGridTile(this.tableLayoutPanel, "Other Expenses", "images/data.png", Tile_Click);
+            AddGridTile(this.tableLayoutPanel, "Expenses Analysis", "images/analysis.jpg", Tile_Click);
+            AddGridTile(this.tableLayoutPanel, "Reading Data", "images/analysis.jpg", Tile_Click);
             this.Controls.Add(this.tableLayoutPanel);
-
             this.ResumeLayout(false);
         }
 
