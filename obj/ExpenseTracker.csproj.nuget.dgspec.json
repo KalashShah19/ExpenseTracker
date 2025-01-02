@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\! Kalash\\GitHub\\ExpenseTracker\\ExpenseTracker.csproj": {}
+    "D:\\! Kalash\\Extras\\Win App\\ExpenseTracker\\ExpenseTracker.csproj": {}
   },
   "projects": {
-    "D:\\! Kalash\\GitHub\\ExpenseTracker\\ExpenseTracker.csproj": {
+    "D:\\! Kalash\\Extras\\Win App\\ExpenseTracker\\ExpenseTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\! Kalash\\GitHub\\ExpenseTracker\\ExpenseTracker.csproj",
+        "projectUniqueName": "D:\\! Kalash\\Extras\\Win App\\ExpenseTracker\\ExpenseTracker.csproj",
         "projectName": "ExpenseTracker",
-        "projectPath": "D:\\! Kalash\\GitHub\\ExpenseTracker\\ExpenseTracker.csproj",
+        "projectPath": "D:\\! Kalash\\Extras\\Win App\\ExpenseTracker\\ExpenseTracker.csproj",
         "packagesPath": "C:\\Users\\intern035\\.nuget\\packages\\",
-        "outputPath": "D:\\! Kalash\\GitHub\\ExpenseTracker\\obj\\",
+        "outputPath": "D:\\! Kalash\\Extras\\Win App\\ExpenseTracker\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

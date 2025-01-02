@@ -14,6 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ExpenseTracker
-build_property.ProjectDir = D:\! Kalash\GitHub\ExpenseTracker\
+build_property.ProjectDir = D:\! Kalash\Extras\Win App\ExpenseTracker\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

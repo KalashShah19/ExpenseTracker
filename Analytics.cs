@@ -28,7 +28,7 @@ namespace ExpenseTracker
                 while ((line = reader.ReadLine()!) != null)
                 {
                     string[] parts = line.Split(',');
-                    if (parts.Length >= 3)
+                    if (parts.Length >= 4)
                     {
                         double amount;
                         if (double.TryParse(parts[0], out amount))

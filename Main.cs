@@ -34,11 +34,6 @@ namespace ExpenseTracker
                 case "Expenses Analysis":
                     OpenForm(new Analytics());
                     break;
-                //Book Reading
-                case "Reading Data":
-                    OpenForm(new Reading());
-                    break;
-
             }
         }
 

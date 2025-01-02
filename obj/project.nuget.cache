@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6qQSP8qhd4A=",
+  "dgSpecHash": "kRJ8gSP/KKk=",
   "success": true,
-  "projectFilePath": "D:\\! Kalash\\GitHub\\ExpenseTracker\\ExpenseTracker.csproj",
+  "projectFilePath": "D:\\! Kalash\\Extras\\Win App\\ExpenseTracker\\ExpenseTracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\intern035\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",
     "C:\\Users\\intern035\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
